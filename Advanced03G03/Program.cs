@@ -141,6 +141,26 @@ namespace Advanced03G03
             }
 
             #endregion
+
+            #region 06
+            Stack<string> browserHistory = new Stack<string>();
+            browserHistory.Push("google.com");
+            browserHistory.Push("github.com");
+            browserHistory.Push("stackoverflow.com");
+            browserHistory.Push("youtube.com");
+            browserHistory.Push("claude.ai");
+            Console.WriteLine($"Current page (Peek): {browserHistory.Peek()}");
+            for (int i = 1; i <= 3; i++)
+            {
+                string poppedPage = browserHistory.Pop();
+                Console.WriteLine($"Step {i}: Left [{poppedPage}]");
+            }
+            Console.WriteLine($"\nCurrent page after going back: {browserHistory.Peek()}");
+            browserHistory.Clear();
+            bool isStackSuccess = browserHistory.TryPop(out string stackResult);
+            Console.WriteLine($"TryPop successful? {isStackSuccess}");
+            Console.WriteLine($"Result value: {(stackResult ?? "null")}");
+            #endregion
         }
     }
 }
