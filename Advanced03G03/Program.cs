@@ -118,6 +118,29 @@ namespace Advanced03G03
             bool isSubset = subSet.IsSubsetOf(setA);
             Console.WriteLine($"Is {{1, 2}} a subset of Set A? {isSubset}");
             #endregion
+
+            #region 05
+            Queue<string> printQueue = new Queue<string>();
+            printQueue.Enqueue("Report.pdf");
+            printQueue.Enqueue("Invoice.pdf");
+            printQueue.Enqueue("Letter.docx");
+            printQueue.Enqueue("Resume.pdf");
+            printQueue.Enqueue("Photo.jpg");
+
+            Console.WriteLine($"Total documents in queue: {printQueue.Count}");
+            Console.WriteLine("Documents in queue:");
+            foreach (var doc in printQueue)
+            {
+                Console.WriteLine($" - {doc}");
+            }
+            Console.WriteLine($"Next document to print (Peek): {printQueue.Peek()}");
+            while (printQueue.Count > 0)
+            {
+                string currentDoc = printQueue.Dequeue();
+                Console.WriteLine($"Printing: {currentDoc}");
+            }
+
+            #endregion
         }
     }
 }
