@@ -65,7 +65,33 @@ namespace Advanced03G03
             #endregion
 
             #region 03
+            Dictionary<string, int> students = new Dictionary<string, int>()
+            {
+                { "Ahmed", 01012345678 },
+                { "basmala", 01123456789 },
+                { "passant", 01234567890 },
+                { "Omar", 01545678901 }
+            };
+            students["Nehal"] = 01028885105;
+            Console.WriteLine(students.TryAdd("Nehal", 01028885105));
+            if (students.ContainsKey("Nehal"))
+            {
+                Console.WriteLine(students["Nehal"]);
+            }
+            if (students.TryGetValue("Nehal", out int phoneNumber))
+            {
+                Console.WriteLine(phoneNumber);
+            }
+            Console.WriteLine(students.GetValueOrDefault("Nehal", 0));
 
+            bool isAdded = students.TryAdd("passant", 0112675452); 
+            Console.WriteLine($"Is .TryAdd() successful? {isAdded}");
+            string targetName = "Youssef";
+            string studentNumber = students.TryGetValue(targetName, out int number) ? number.ToString() : "Not Found";
+            Console.WriteLine($"Student '{targetName}': {studentNumber}");
+
+            Console.WriteLine("Keys: " + string.Join(", ", students.Keys));
+            Console.WriteLine("Values: " + string.Join(", ", students.Values));
             #endregion
 
 
