@@ -30,6 +30,44 @@ namespace Advanced03G03
 
             #endregion
 
+            #region 02
+            SortedDictionary<int, string> leaderboard = new SortedDictionary<int, string>()
+          {
+            { 500, "Ahmed" },
+            { 200, "Sara" },
+            { 800, "Ali" },
+            { 350, "Mona" }
+          };
+            foreach (KeyValuePair<int, string> entry in leaderboard)
+            {
+                Console.WriteLine($"Score: {entry.Key} -> Player: {entry.Value}");
+            }
+            var firstEntry = leaderboard.First();
+            Console.WriteLine($"First Key: {firstEntry.Key}");
+            Console.WriteLine($"First Value: {firstEntry.Value}");
+            bool hasScore500 = leaderboard.ContainsKey(500);
+            Console.WriteLine($"\nIs Score 500 exists? {hasScore500}");
+            if (leaderboard.TryGetValue(999, out string? player999))
+            {
+                Console.WriteLine($"Player with score 999: {player999}");
+            }
+            else
+            {
+                Console.WriteLine("Player with score 999 not found safely!");
+            }
+            leaderboard.Remove(200);
+
+            Console.WriteLine("\n=== Updated Leaderboard After Removing Score 200 ===");
+            foreach (var entry in leaderboard)
+            {
+                Console.WriteLine($"Score: {entry.Key} -> Player: {entry.Value}");
+            }
+            #endregion
+
+            #region 03
+
+            #endregion
+
 
         }
     }
