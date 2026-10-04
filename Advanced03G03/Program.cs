@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Advanced03G03
@@ -94,7 +95,29 @@ namespace Advanced03G03
             Console.WriteLine("Values: " + string.Join(", ", students.Values));
             #endregion
 
-
+            #region 04
+            HashSet<string> set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            set.Add("ahmed@test.com");
+            set.Add("AHMED@test.com");
+            set.Add("sara@test.com");
+            set.Add("Sara@Test.Com");
+            Helper.PrintCollection("Email Addresses", set);
+            Console.WriteLine(set.Count);
+            HashSet<int> setA = new HashSet<int> { 1, 2, 3, 4, 5 };
+            HashSet<int> setB = new HashSet<int> { 4, 5, 6, 7, 8 };
+            HashSet<int> unionSet = new HashSet<int>(setA);
+            unionSet.UnionWith(setB);
+            Console.WriteLine("UnionWith (Set A U Set B): " + string.Join(", ", unionSet));
+            HashSet<int> intersectSet = new HashSet<int>(setA);
+            intersectSet.IntersectWith(setB);
+            Console.WriteLine("IntersectWith (Set A n Set B): " + string.Join(", ", intersectSet));
+            HashSet<int> exceptSet = new HashSet<int>(setA);
+            exceptSet.ExceptWith(setB);
+            Console.WriteLine("ExceptWith (Set A - Set B): " + string.Join(", ", exceptSet));
+            HashSet<int> subSet = new HashSet<int> { 1, 2 };
+            bool isSubset = subSet.IsSubsetOf(setA);
+            Console.WriteLine($"Is {{1, 2}} a subset of Set A? {isSubset}");
+            #endregion
         }
     }
 }
